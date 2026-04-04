@@ -1,0 +1,67 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Landscapes By Asten',
+  description = 'Professional landscaping and garden design services in the Shire & Illawarra regions of NSW.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-stone-900 font-sans antialiased">
+    <!-- Sticky nav -->
+    <nav class="sticky top-0 z-50 bg-stone-950 border-b border-stone-800">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="text-white font-serif font-bold text-lg leading-none">
+          Landscapes <span class="text-green-400">By Asten</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="hidden md:flex gap-8 text-sm text-stone-400">
+          <a href="#services" class="hover:text-green-400 transition-colors">Services</a>
+          <a href="#gallery" class="hover:text-green-400 transition-colors">Gallery</a>
+          <a href="#contact" class="hover:text-green-400 transition-colors">Contact</a>
+        </div>
+
+        <!-- Mobile hamburger (CSS-only toggle) -->
+        <label for="menu-toggle" class="md:hidden cursor-pointer text-stone-400 hover:text-green-400">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </label>
+      </div>
+
+      <!-- Mobile menu drawer -->
+      <input type="checkbox" id="menu-toggle" class="hidden peer" />
+      <div class="hidden peer-checked:block md:hidden bg-stone-950 border-t border-stone-800">
+        <div class="px-6 py-4 flex flex-col gap-4 text-sm text-stone-400">
+          <a href="#services" class="hover:text-green-400 transition-colors">Services</a>
+          <a href="#gallery" class="hover:text-green-400 transition-colors">Gallery</a>
+          <a href="#contact" class="hover:text-green-400 transition-colors">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <slot />
+
+    <footer class="bg-stone-950 py-8 text-center text-sm text-stone-500">
+      © 2026 Landscapes By Asten · Shire &amp; Illawarra
+    </footer>
+  </body>
+</html>
