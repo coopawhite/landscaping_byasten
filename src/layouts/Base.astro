@@ -22,49 +22,75 @@ import '../styles/global.css';
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-stone-900 font-sans antialiased">
+  <body class="bg-cream font-sans antialiased">
+
     <!-- Sticky nav -->
-    <nav class="sticky top-0 z-50 bg-stone-950 border-b border-stone-800">
+    <nav class="sticky top-0 z-50 bg-cream border-b border-border">
       <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="#home" class="text-white font-serif font-bold text-lg leading-none">
-          Landscapes <span class="text-green-400">By Asten</span>
+
+        <!-- Brand -->
+        <a href="#home" class="font-display text-xl font-semibold text-ink leading-none tracking-tight">
+          Landscapes <span class="text-sage-deep">By Asten</span>
         </a>
 
         <!-- Desktop links -->
-        <div class="hidden md:flex gap-8 text-sm text-stone-400">
-          <a href="#services" class="hover:text-green-400 transition-colors">Services</a>
-          <a href="#gallery" class="hover:text-green-400 transition-colors">Gallery</a>
-          <a href="#contact" class="hover:text-green-400 transition-colors">Contact</a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#services" class="text-xs uppercase tracking-widest text-ink-muted hover:text-sage-deep transition-colors duration-200">Services</a>
+          <a href="#gallery"  class="text-xs uppercase tracking-widest text-ink-muted hover:text-sage-deep transition-colors duration-200">Gallery</a>
+          <a href="#contact"  class="text-xs uppercase tracking-widest text-ink-muted hover:text-sage-deep transition-colors duration-200">Contact</a>
+          <a
+            href="#contact"
+            class="text-xs uppercase tracking-widest bg-sage-deep text-cream px-5 py-2.5 hover:bg-sage transition-colors duration-200"
+          >
+            Get a Quote
+          </a>
         </div>
 
         <!-- Mobile hamburger (CSS-only toggle) -->
-        <label for="menu-toggle" aria-label="Open navigation menu" class="md:hidden cursor-pointer text-stone-400 hover:text-green-400">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        <label for="menu-toggle" aria-label="Open navigation menu" class="md:hidden cursor-pointer text-ink-muted hover:text-sage-deep p-1">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
           <span class="sr-only">Open navigation menu</span>
         </label>
       </div>
 
-      <!-- Mobile menu drawer -->
+      <!-- Mobile menu overlay -->
       <input type="checkbox" id="menu-toggle" class="hidden peer" />
-      <div class="hidden peer-checked:block md:hidden bg-stone-950 border-t border-stone-800">
-        <div class="px-6 py-4 flex flex-col gap-4 text-sm text-stone-400">
-          <a href="#services" class="hover:text-green-400 transition-colors">Services</a>
-          <a href="#gallery" class="hover:text-green-400 transition-colors">Gallery</a>
-          <a href="#contact" class="hover:text-green-400 transition-colors">Contact</a>
+      <div class="hidden peer-checked:flex md:hidden fixed inset-0 z-40 flex-col bg-cream border-t border-border">
+        <!-- Close button -->
+        <label for="menu-toggle" class="absolute top-5 right-6 cursor-pointer text-ink-muted hover:text-sage-deep">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </label>
+        <div class="flex flex-col gap-8 justify-center items-center flex-1">
+          <a href="#services" onclick="document.getElementById('menu-toggle').checked=false" class="font-display text-4xl text-ink hover:text-sage-deep transition-colors">Services</a>
+          <a href="#gallery"  onclick="document.getElementById('menu-toggle').checked=false" class="font-display text-4xl text-ink hover:text-sage-deep transition-colors">Gallery</a>
+          <a href="#contact"  onclick="document.getElementById('menu-toggle').checked=false" class="font-display text-4xl text-ink hover:text-sage-deep transition-colors">Contact</a>
+          <a
+            href="#contact"
+            onclick="document.getElementById('menu-toggle').checked=false"
+            class="mt-4 text-sm uppercase tracking-widest bg-sage-deep text-cream px-8 py-3 hover:bg-sage transition-colors"
+          >
+            Get a Quote
+          </a>
         </div>
       </div>
     </nav>
 
     <slot />
 
-    <footer class="bg-stone-950 py-8 text-center text-sm text-stone-500">
-      © 2026 Landscapes By Asten · Shire &amp; Illawarra
+    <footer class="bg-ink py-10 px-6">
+      <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+        <span class="font-display text-lg text-cream/80 font-medium">Landscapes By Asten</span>
+        <span class="text-xs uppercase tracking-widest text-cream/40">© 2026 · Shire &amp; Illawarra</span>
+      </div>
     </footer>
+
   </body>
 </html>

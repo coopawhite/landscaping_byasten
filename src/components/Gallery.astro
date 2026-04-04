@@ -2,34 +2,44 @@
 const baseUrl = import.meta.env.BASE_URL;
 
 const images = [
-  { src: `${baseUrl}/images/gallery-1.jpg`, alt: 'Garden design and landscaping project' },
-  { src: `${baseUrl}/images/gallery-2.jpg`, alt: 'Lawn care and maintenance' },
-  { src: `${baseUrl}/images/gallery-3.jpg`, alt: 'Paving and pathway installation' },
-  { src: `${baseUrl}/images/gallery-4.jpg`, alt: 'Retaining wall construction' },
-  { src: `${baseUrl}/images/gallery-5.jpg`, alt: 'Native garden planting' },
-  { src: `${baseUrl}/images/gallery-6.jpg`, alt: 'Backyard transformation' },
+  { src: `${baseUrl}/images/gallery-1.jpg`, alt: 'Garden design and landscaping project',  caption: 'Garden Design' },
+  { src: `${baseUrl}/images/gallery-2.jpg`, alt: 'Lawn care and maintenance',               caption: 'Lawn Care' },
+  { src: `${baseUrl}/images/gallery-3.jpg`, alt: 'Paving and pathway installation',          caption: 'Pathways' },
+  { src: `${baseUrl}/images/gallery-4.jpg`, alt: 'Retaining wall construction',              caption: 'Retaining Walls' },
+  { src: `${baseUrl}/images/gallery-5.jpg`, alt: 'Native garden planting',                   caption: 'Native Planting' },
+  { src: `${baseUrl}/images/gallery-6.jpg`, alt: 'Backyard transformation',                  caption: 'Transformation' },
 ];
 ---
 
-<section id="gallery" class="bg-stone-900 py-20 px-6">
+<section id="gallery" class="bg-sand py-24 md:py-32 px-6">
   <div class="max-w-5xl mx-auto">
-    <h2 class="font-serif text-3xl md:text-4xl font-bold text-white text-center mb-3">
-      Our Work
-    </h2>
-    <p class="text-stone-400 text-center mb-12 text-sm tracking-widest uppercase">
-      Projects across the Shire &amp; Illawarra
-    </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {images.map((image) => (
-        <div class="overflow-hidden rounded-sm aspect-square">
-          <img
-            src={image.src}
-            alt={image.alt}
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-          />
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-[0.35em] uppercase text-sage font-medium mb-4">Our Work</p>
+      <h2 class="font-display font-semibold text-ink leading-tight" style="font-size: clamp(2.25rem, 5vw, 3.5rem);">
+        Projects across the region
+      </h2>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+      {images.map((image, i) => (
+        <div class={`gallery-item group relative overflow-hidden ${i === 0 ? 'col-span-2 lg:col-span-1' : ''}`}>
+          <div class="aspect-square overflow-hidden">
+            <img
+              src={image.src}
+              alt={image.alt}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <!-- Caption overlay -->
+          <div class="caption absolute inset-x-0 bottom-0 bg-ink/70 px-4 py-3 backdrop-blur-sm">
+            <span class="text-cream text-xs uppercase tracking-widest font-medium">{image.caption}</span>
+          </div>
         </div>
       ))}
     </div>
+
   </div>
 </section>

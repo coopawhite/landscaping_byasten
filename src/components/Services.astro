@@ -1,29 +1,49 @@
 ---
 const services = [
-  { icon: '🌿', name: 'Lawn Care',      description: 'Mowing, edging, fertilising and seasonal treatments.' },
-  { icon: '🌱', name: 'Garden Design',  description: 'Custom planting plans and garden makeovers.' },
-  { icon: '🪨', name: 'Paving',         description: 'Driveways, pathways, patios and retaining walls.' },
-  { icon: '✂️', name: 'Maintenance',    description: 'Ongoing care to keep your property looking its best.' },
+  {
+    name: 'Lawn Care',
+    description: 'Mowing, edging, fertilising and seasonal treatments for a healthy, lush lawn.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M12 22V12"/><path d="M12 12C12 12 9 9 6 9C6 9 8 5 12 5"/><path d="M12 12C12 12 15 9 18 9C18 9 16 5 12 5"/></svg>`,
+  },
+  {
+    name: 'Garden Design',
+    description: 'Custom planting plans and garden makeovers tailored to your space and style.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M12 22V11"/><path d="M5 3a7 7 0 0014 0"/><path d="M12 11C12 11 8 7.5 5 3"/><path d="M12 11C12 11 16 7.5 19 3"/></svg>`,
+  },
+  {
+    name: 'Paving',
+    description: 'Driveways, pathways, patios and retaining walls built to last.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><rect x="3" y="3" width="8" height="8" rx="0.5"/><rect x="13" y="3" width="8" height="8" rx="0.5"/><rect x="3" y="13" width="8" height="8" rx="0.5"/><rect x="13" y="13" width="8" height="8" rx="0.5"/></svg>`,
+  },
+  {
+    name: 'Maintenance',
+    description: 'Ongoing care to keep your property looking its best through every season.',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-7 h-7"><path d="M6 3h12"/><path d="M6 8h12"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M6 21h12"/></svg>`,
+  },
 ];
 ---
 
-<section id="services" class="bg-stone-100 py-20 px-6">
+<section id="services" class="bg-cream py-24 md:py-32 px-6">
   <div class="max-w-5xl mx-auto">
-    <h2 class="font-serif text-3xl md:text-4xl font-bold text-stone-800 text-center mb-3">
-      What We Do
-    </h2>
-    <p class="text-stone-500 text-center mb-12 text-sm tracking-widest uppercase">
-      Serving the Shire &amp; Illawarra
-    </p>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Section header -->
+    <div class="text-center mb-16">
+      <p class="text-xs tracking-[0.35em] uppercase text-sage font-medium mb-4">What We Do</p>
+      <h2 class="font-display font-semibold text-ink leading-tight" style="font-size: clamp(2.25rem, 5vw, 3.5rem);">
+        Crafted for your outdoors
+      </h2>
+    </div>
+
+    <!-- Service cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
       {services.map((service) => (
-        <div class="bg-white rounded-sm border-t-4 border-green-600 p-6 shadow-sm">
-          <div class="text-4xl mb-4">{service.icon}</div>
-          <h3 class="font-serif text-lg font-bold text-stone-800 mb-2">{service.name}</h3>
-          <p class="text-stone-500 text-sm leading-relaxed">{service.description}</p>
+        <div class="group bg-white border border-border p-7 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+          <div class="text-sage mb-5" set:html={service.icon} />
+          <h3 class="font-display font-semibold text-ink text-xl mb-2">{service.name}</h3>
+          <p class="text-ink-muted text-sm leading-relaxed font-light">{service.description}</p>
         </div>
       ))}
     </div>
+
   </div>
 </section>

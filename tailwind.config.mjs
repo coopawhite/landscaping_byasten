@@ -5,11 +5,19 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif'],
+        sans: ['"DM Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
       },
       colors: {
-        'hero-green': '#1a2e1a',
+        cream:      '#F7F4EF',
+        sand:       '#EDE8DF',
+        sage:       '#6B8F6E',
+        'sage-deep': '#4A6B50',
+        'sage-light': '#B8CDBA',
+        earth:      '#8B7355',
+        ink:        '#2C2A25',
+        'ink-muted': '#7A7568',
+        border:     '#DDD8CF',
       },
     },
   },
