@@ -2,35 +2,23 @@
 const baseUrl = import.meta.env.BASE_URL;
 ---
 
-<section id="home" class="grain relative h-[55vh] md:h-[60vh] overflow-hidden flex items-center">
-  <!-- Full-bleed background photo -->
-  <img
-    src={`${baseUrl}/images/hero.jpg`}
-    alt="Landscaping work by Landscapes By Asten in the Shire and Illawarra"
-    class="absolute inset-0 w-full h-full object-cover z-0"
-  />
+<section id="home" class="grain relative flex flex-col md:flex-row overflow-hidden" style="height: clamp(420px, 58vh, 680px);">
 
-  <!-- Gradient overlay: cream fade from bottom-left, subtle across whole image -->
-  <div
-    class="absolute inset-0 z-10"
-    style="background: linear-gradient(105deg, rgba(247,244,239,0.92) 0%, rgba(247,244,239,0.75) 45%, rgba(247,244,239,0.15) 100%);"
-  ></div>
-
-  <!-- Content -->
-  <div class="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-16 py-12">
-    <div class="max-w-xl">
-      <p class="fade-up text-xs tracking-[0.35em] text-sage uppercase mb-4 font-sans font-medium">
-        Shire &amp; Illawarra
-      </p>
-      <h1 class="fade-up fade-up-delay-1 font-display font-semibold leading-[0.9] text-ink mb-4" style="font-size: clamp(2.5rem, 6vw, 4.5rem);">
-        Landscapes<br />By Asten
-      </h1>
-      <p class="fade-up fade-up-delay-2 font-sans font-light text-ink-muted text-base md:text-lg mb-7 leading-relaxed">
-        Your local landscaping experts — crafting outdoor spaces that endure.
-      </p>
+  <!-- Left: cream text panel -->
+  <div class="relative z-10 flex flex-col justify-center bg-cream px-8 md:px-14 py-10 w-full md:w-[46%] flex-shrink-0">
+    <p class="fade-up text-xs tracking-[0.35em] text-sage uppercase mb-4 font-sans font-medium">
+      Shire &amp; Illawarra
+    </p>
+    <h1 class="fade-up fade-up-delay-1 font-display font-semibold leading-[0.9] text-ink mb-4" style="font-size: clamp(2.25rem, 4.5vw, 4rem);">
+      Landscapes<br />By Asten
+    </h1>
+    <p class="fade-up fade-up-delay-2 font-sans font-light text-ink-muted text-sm md:text-base mb-7 leading-relaxed max-w-xs">
+      Your local landscaping experts — crafting outdoor spaces that endure.
+    </p>
+    <div class="fade-up fade-up-delay-3">
       <a
         href="#contact"
-        class="fade-up fade-up-delay-3 inline-flex items-center gap-3 bg-sage-deep hover:bg-sage text-cream text-xs uppercase tracking-widest px-6 py-3 transition-colors duration-300"
+        class="inline-flex items-center gap-3 bg-sage-deep hover:bg-sage text-cream text-xs uppercase tracking-widest px-6 py-3 transition-colors duration-300"
       >
         Get in Touch
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
@@ -39,4 +27,14 @@ const baseUrl = import.meta.env.BASE_URL;
       </a>
     </div>
   </div>
+
+  <!-- Right: full photo, no overlay -->
+  <div class="relative w-full md:flex-1 h-52 md:h-full overflow-hidden order-first md:order-last">
+    <img
+      src={`${baseUrl}/images/hero.jpg`}
+      alt="Landscaping work by Landscapes By Asten in the Shire and Illawarra"
+      class="w-full h-full object-cover object-center"
+    />
+  </div>
+
 </section>
