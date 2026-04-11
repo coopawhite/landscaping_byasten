@@ -4,7 +4,6 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   output: 'static',
-  site: 'https://coopawhite.github.io',
-  base: '/landscaping_byasten',
+  site: 'https://landscapesbyasten.com.au',
   integrations: [tailwind()],
 });
