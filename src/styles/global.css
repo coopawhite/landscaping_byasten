@@ -59,11 +59,3 @@
 .fade-up-delay-2 { animation-delay: 0.3s;  opacity: 0; animation-fill-mode: forwards; }
 .fade-up-delay-3 { animation-delay: 0.45s; opacity: 0; animation-fill-mode: forwards; }
 
-/* Gallery caption hover */
-.gallery-item .caption {
-  transform: translateY(100%);
-  transition: transform 0.35s ease;
-}
-.gallery-item:hover .caption {
-  transform: translateY(0);
-}

@@ -7,6 +7,10 @@ const images = [
   { src: '/images/gallery-3.jpg', alt: 'Native garden planting',                   caption: 'Native Planting' },
   { src: '/images/gallery-6.jpg', alt: 'Backyard transformation',                  caption: 'Transformation' },
 ];
+
+// First image is full-width on mobile (col-span-2). The remaining (images.length - 1)
+// fill a 2-col grid. If that count is odd, the last image is alone in its row.
+const lastIsAlone = (images.length - 1) % 2 === 1;
 ---
 
 <section id="gallery" class="bg-sand py-24 md:py-32 px-6">
@@ -23,7 +27,7 @@ const images = [
     <!-- Gallery grid -->
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
       {images.map((image, i) => (
-        <div class={`gallery-item group relative overflow-hidden ${i === 0 ? 'col-span-2 lg:col-span-1' : ''}`}>
+        <div class={`gallery-item group relative overflow-hidden ${i === 0 ? 'col-span-2 lg:col-span-1' : ''} ${lastIsAlone && i === images.length - 1 ? 'col-span-2 lg:col-span-1' : ''}`}>
           <div class="aspect-square overflow-hidden">
             <img
               src={image.src}
@@ -31,10 +35,7 @@ const images = [
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <!-- Caption overlay -->
-          <div class="caption absolute inset-x-0 bottom-0 bg-ink/70 px-4 py-3 backdrop-blur-sm">
-            <span class="text-cream text-xs uppercase tracking-widest font-medium">{image.caption}</span>
-          </div>
+          {/* Caption overlay removed */}
         </div>
       ))}
     </div>
